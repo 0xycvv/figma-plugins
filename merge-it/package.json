@@ -1,0 +1,12 @@
+{
+  "name": "merge-it",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "figplug build -O -o=build",
+    "dev": "figplug build -g -w -v -o=build"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "figplug": "^0.1.15"
+  }
+}

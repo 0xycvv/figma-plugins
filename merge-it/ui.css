@@ -1,0 +1,225 @@
+@import url('https://rsms.me/inter/inter.css');
+
+/* reset */
+* {
+  font-family: inherit;
+  line-height: inherit;
+  font-synthesis: none;
+}
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+grid,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+hr,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+main,
+mark,
+menu,
+nav,
+noscript,
+object,
+ol,
+output,
+p,
+pre,
+q,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a,
+a:active,
+a:visited {
+  color: inherit;
+}
+/* end of reset */
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: white;
+  color: #222;
+  font: 12px/16px 'Inter', system-ui, -system-ui, sans-serif;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+}
+@supports (font-variation-settings: normal) {
+  body {
+    font-family: 'Inter var', system-ui, sans-serif;
+  }
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-weight: 600;
+  font-size: 11px;
+  line-height: 16px;
+  letter-spacing: 0.005em;
+}
+
+#close-icon {
+  cursor: pointer;
+}
+
+.desc {
+  padding: 16px;
+}
+
+ul {
+  padding-top: 16px;
+  overflow: scroll;
+  flex: 1;
+}
+
+li {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  border-radius: 1px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  padding: 10px 16px;
+  list-style: none;
+}
+
+li:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+li.selected {
+  background: #daebf7;
+}
+
+.name {
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 16px;
+}
+
+.count {
+  font-size: 11px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+button {
+  border-radius: 6px;
+  border: none;
+  padding: 7px 18px;
+  color: #fff;
+  cursor: pointer;
+}
+
+button.secondary {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+button.primary {
+  margin-left: 8px;
+  background-color: #18a0fb;
+}
+
+button:disabled {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+.pointer-none {
+  pointer-events: none;
+}

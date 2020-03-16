@@ -1,0 +1,7 @@
+{
+  "api": "1.0.0",
+  "name": "merge-it",
+  "main": "plugin.ts",
+  "id": "821396560238695046",
+  "ui": "ui.ts"
+}
