@@ -7,6 +7,6 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "figplug": "^0.1.15"
+    "figplug": "^0.1.18"
   }
 }

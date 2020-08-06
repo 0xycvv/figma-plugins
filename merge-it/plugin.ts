@@ -26,20 +26,22 @@ if (selectedComponents.length) {
     height: 474,
   });
 } else {
-  figma.notify('Oh no! Select at least two components and try again.');
+  figma.notify(
+    'Oh no! Select at least two components and try again.',
+  );
 }
 
 figma.ui.postMessage({
   type: EventMessage.UpdateList,
-  components: selectedComponents.map(c => ({
+  components: selectedComponents.map((c) => ({
     id: c.id,
     name: c.name,
-    count: getAllInstancesBy(node => node.masterComponent === c)
+    count: getAllInstancesBy((node) => node.masterComponent === c)
       .length,
   })),
 });
 
-figma.ui.onmessage = msg => {
+figma.ui.onmessage = (msg) => {
   if (msg.type === EventMessage.Cancel) {
     figma.closePlugin();
   }
@@ -52,7 +54,10 @@ figma.ui.onmessage = msg => {
       .forEach((instance: InstanceNode) => {
         if (targetComponent) {
           try {
-            if (instance.masterComponent !== targetComponent) {
+            if (
+              instance.masterComponent !== targetComponent &&
+              selectedComponents.includes(instance.masterComponent)
+            ) {
               instance.masterComponent = targetComponent;
             }
           } catch (error) {
@@ -61,8 +66,8 @@ figma.ui.onmessage = msg => {
         }
       });
     selectedComponents
-      .filter(c => c.id !== targetComponent?.id)
-      .forEach(notSelectedComponent => {
+      .filter((c) => c.id !== targetComponent?.id)
+      .forEach((notSelectedComponent) => {
         try {
           notSelectedComponent.remove();
         } catch (error) {
@@ -78,7 +83,7 @@ figma.ui.onmessage = msg => {
   }
 
   if (msg.type === EventMessage.Select) {
-    targetComponent = selectedComponents.find(c => c.id === msg.id);
+    targetComponent = selectedComponents.find((c) => c.id === msg.id);
     if (targetComponent) {
       figma.currentPage.selection = [targetComponent];
       figma.viewport.scrollAndZoomIntoView([targetComponent]);
