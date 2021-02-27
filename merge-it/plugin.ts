@@ -1,3 +1,4 @@
+import {} from '@figma/plugin-typings';
 import { EventMessage } from './event';
 
 // ----- Type Assertion ----- //
@@ -36,7 +37,7 @@ figma.ui.postMessage({
   components: selectedComponents.map((c) => ({
     id: c.id,
     name: c.name,
-    count: getAllInstancesBy((node) => node.masterComponent === c)
+    count: getAllInstancesBy((node) => node.mainComponent === c)
       .length,
   })),
 });
@@ -55,10 +56,11 @@ figma.ui.onmessage = (msg) => {
         if (targetComponent) {
           try {
             if (
-              instance.masterComponent !== targetComponent &&
-              selectedComponents.includes(instance.masterComponent)
+              instance.mainComponent &&
+              instance.mainComponent !== targetComponent &&
+              selectedComponents.includes(instance.mainComponent)
             ) {
-              instance.masterComponent = targetComponent;
+              instance.mainComponent = targetComponent;
             }
           } catch (error) {
             console.log(error);
